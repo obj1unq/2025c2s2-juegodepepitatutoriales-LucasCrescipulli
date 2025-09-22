@@ -2,7 +2,7 @@
 object pepita {
 	var energia = 500
 	var property position = game.center()
-	var property image = "pepita.png"
+	var image = "pepita.png"
 
 	method comer(comida) {
 		energia = energia + comida.energiaQueOtorga()
@@ -16,17 +16,10 @@ object pepita {
 		return energia
 	}
 
-	// ESTO NO FUNCIONA LA PUTA MADRE
-	/* method image(){
-		return if (energia <= 0){
-			image = "pepita-gris.png"
-		}
-		else {
-			image = "pepita.png"
-		}
+	method image(){
+		return if (energia <= 0) "pepita-gris.png" else "pepita.png"
 	}
-	*/
-
+	
 	method noTieneEnergia(){
 		return energia <= 0
 	}

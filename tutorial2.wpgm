@@ -1,5 +1,6 @@
 import wollok.game.*
 import pepita.*
+import silvestre.*
 
 program tutorial2{
     game.title("Pepita")
@@ -7,6 +8,7 @@ program tutorial2{
 	game.width(10)
 	game.cellSize(50)
 	game.boardGround("fondo.jpg")
+    game.addVisual(silvestre)
 	game.addVisualCharacter(pepita)
 
     keyboard.right().onPressDo({pepita.volar(1)})
