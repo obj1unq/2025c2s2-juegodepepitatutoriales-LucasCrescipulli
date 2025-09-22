@@ -1,0 +1,18 @@
+import wollok.game.*
+import pepita.*
+
+program tutorial2{
+    game.title("Pepita")
+	game.height(10)
+	game.width(10)
+	game.cellSize(50)
+	game.boardGround("fondo.jpg")
+	game.addVisualCharacter(pepita)
+
+    keyboard.right().onPressDo({pepita.volar(1)})
+    keyboard.left().onPressDo({pepita.volar(1)})
+    keyboard.up().onPressDo({pepita.volar(1)})
+    keyboard.down().onPressDo({pepita.volar(1)})
+    
+    game.start()
+}

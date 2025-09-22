@@ -17,4 +17,5 @@ program pepitaGame {
 	game.start()
 	game.whenCollideDo(silvestre, {pepita => pepita.image("pepita-gris.png")})
 	game.whenCollideDo(nido, {pepita => pepita.image("pepita-grande.png")})
+
 }

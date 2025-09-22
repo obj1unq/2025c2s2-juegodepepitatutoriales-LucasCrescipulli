@@ -1,6 +1,6 @@
 
 object pepita {
-	var energia = 100
+	var energia = 500
 	var property position = game.center()
 	var property image = "pepita.png"
 
@@ -9,15 +9,27 @@ object pepita {
 	}
 
 	method volar(kms) {
-		energia = energia - 10 - kms 
+		energia = energia - 9 - kms 
 	}
 	
 	method energia() {
 		return energia
 	}
 
-	method subir(){
-		position = position.up(1)
+	// ESTO NO FUNCIONA LA PUTA MADRE
+	/* method image(){
+		return if (energia <= 0){
+			image = "pepita-gris.png"
+		}
+		else {
+			image = "pepita.png"
+		}
 	}
+	*/
+
+	method noTieneEnergia(){
+		return energia <= 0
+	}
+
 }
 
