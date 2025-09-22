@@ -1,7 +1,7 @@
 
 object pepita {
 	var energia = 100
-	var property position = game.at(0, 0)
+	var property position = game.center()
 	var property image = "pepita.png"
 
 	method comer(comida) {

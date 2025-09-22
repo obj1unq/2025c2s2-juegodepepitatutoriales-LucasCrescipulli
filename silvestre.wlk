@@ -1,7 +1,9 @@
+import pepita.*
 object silvestre{
-    var property position = game.at(9, 0)
+    method position(){
+        return game.at(3.max(pepita.position().x()), 0)
+    } 
     method image(){
         return "silvestre.png"
     }
-
 }

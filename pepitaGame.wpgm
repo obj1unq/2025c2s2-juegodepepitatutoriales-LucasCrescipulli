@@ -14,7 +14,7 @@ program pepitaGame {
 	game.addVisualCharacter(pepita)
 	game.addVisual(silvestre)
 	game.addVisual(nido)
-	pepita.position()
 	game.start()
 	game.whenCollideDo(silvestre, {pepita => pepita.image("pepita-gris.png")})
+	game.whenCollideDo(nido, {pepita => pepita.image("pepita-grande.png")})
 }
