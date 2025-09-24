@@ -3,6 +3,7 @@ import silvestre.*
 
 object pepita {
 	var energia = 9
+	const objectivo = nido
 	var property position = game.center()
 
 // Acciones
@@ -13,6 +14,10 @@ object pepita {
 	method volar(distancia) {
 		self.verificarVuelo()
 		energia = energia - 9 * distancia
+	}
+
+	method mover(direccion){
+		position = direccion.siguiente(self.position())
 	}
 
 // Getters
@@ -27,7 +32,7 @@ object pepita {
 
 	method noTieneEnergia() = energia <= 0
 
-	method estaEnElNido() = self.position() == nido.position()
+	method estaEnElNido() = self.position() == objectivo.position()
 
 // Verificaciones
 	method verificarVuelo(){
@@ -35,5 +40,6 @@ object pepita {
 			self.error("Pepita no tiene suficiente energia para volar")
 		}
 	}
+
 }
 

@@ -23,10 +23,10 @@ program pepitaGame {
 	
 // Tutorial 2
 // Acciones de Pepita al moverse
-    keyboard.right().onPressDo({pepita.volar(1)})
-    keyboard.left().onPressDo({pepita.volar(1)})
-    keyboard.up().onPressDo({pepita.volar(1)})
-    keyboard.down().onPressDo({pepita.volar(1)})
+    keyboard.right().onPressDo({pepita.mover(derecha)})
+    keyboard.left().onPressDo({pepita.mover(izquierda)})
+    keyboard.up().onPressDo({pepita.mover(arriba)})
+    keyboard.down().onPressDo({pepita.mover(abajo)})
     
     game.start()
 }
