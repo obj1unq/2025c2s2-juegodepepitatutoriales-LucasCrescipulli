@@ -13,13 +13,9 @@ program pepitaGame {
 	game.boardGround("fondo.jpg")
 
 // personajes - objetos
-	game.addVisualCharacter(pepita)
 	game.addVisual(silvestre)
 	game.addVisual(nido)
-
-// comportamientos
-	game.whenCollideDo(silvestre, {pepita => pepita.image("pepita-gris.png")})
-	game.whenCollideDo(nido, {pepita => pepita.image("pepita-grande.png")})
+	game.addVisual(pepita)
 	
 // Tutorial 2
 // Acciones de Pepita al moverse
@@ -27,6 +23,8 @@ program pepitaGame {
     keyboard.left().onPressDo({pepita.mover(izquierda)})
     keyboard.up().onPressDo({pepita.mover(arriba)})
     keyboard.down().onPressDo({pepita.mover(abajo)})
+
+	// NO PUEDO HACER FUNCIONAR ESTO: game.onTick(80, "gravedad", {pepita.position().down(1)})
     
     game.start()
 }

@@ -2,11 +2,12 @@ import extras.*
 import silvestre.*
 
 object pepita {
-	var energia = 9
+// atributos
+	var energia = 500
 	const objectivo = nido
 	var property position = game.center()
 
-// Acciones
+// acciones
 	method comer(comida) {
 		energia = energia + comida.energiaQueOtorga()
 	}
@@ -17,29 +18,47 @@ object pepita {
 	}
 
 	method mover(direccion){
+		self.volar(1)
+		// verificar el borde ???
+		// verificar si hay obstáculo ???
 		position = direccion.siguiente(self.position())
 	}
 
-// Getters
-	method image(){
-		return if (self.noTieneEnergia() || self.silvestreLaAtrapo()) {"pepita-gris.png"} 
-		else if (self.estaEnElNido()) {"pepita-grande.png"}
-		else {"pepita.png"}
-	}
+// getters
 	method energia() = energia
 
-	method silvestreLaAtrapo() = self.position() == silvestre.position()
+	method image(){
+		return if (self.noTieneEnergia() || self.silvestreLaAtrapo()) {
+			"pepita-gris.png"
+		} 
+		else if (self.estaEnElNido()) {
+			"pepita-grande.png"
+		}
+		else {
+			"pepita.png"
+		}
+	}
 
-	method noTieneEnergia() = energia <= 0
+	method silvestreLaAtrapo(){
+		return self.position() == silvestre.position()
+	}
 
-	method estaEnElNido() = self.position() == objectivo.position()
+	method noTieneEnergia(){ 
+		return energia <= 0
+	}
 
-// Verificaciones
+	method estaEnElNido(){
+		return self.position() == objectivo.position()
+	}
+
+// verificaciones
 	method verificarVuelo(){
 		if (energia < 9){
 			self.error("Pepita no tiene suficiente energia para volar")
 		}
+		else if (self.silvestreLaAtrapo()){
+			self.error("Pepita fue atrapada por Silvestre")
+		}
 	}
-
 }
 
