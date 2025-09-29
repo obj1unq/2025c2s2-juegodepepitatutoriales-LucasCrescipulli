@@ -24,7 +24,10 @@ program pepitaGame {
     keyboard.up().onPressDo({pepita.mover(arriba)})
     keyboard.down().onPressDo({pepita.mover(abajo)})
 
-	// NO PUEDO HACER FUNCIONAR ESTO: game.onTick(80, "gravedad", {pepita.position().down(1)})
+	game.onTick(800, "gravedad", {pepita.caer()})
     
     game.start()
+
+// Tutorial 3
+	game.onCollideDo(pepita, {otro => otro.colisionConPepita()})
 }
