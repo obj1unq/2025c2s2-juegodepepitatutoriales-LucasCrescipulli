@@ -16,6 +16,7 @@ program pepitaGame {
 	game.addVisual(silvestre)
 	game.addVisual(nido)
 	game.addVisual(pepita)
+	game.addVisual(muro)
 	
 // Tutorial 2
 // Acciones de Pepita al moverse

@@ -2,7 +2,7 @@ import pepita.*
 import game.*
 
 object nido{
-    var property position = game.at(8, 9)
+    method position() = game.at(8, 9)
     method image(){
         return "nido.png"
     }
@@ -14,7 +14,7 @@ object nido{
 
 object izquierda{
     method siguiente(position){
-        return if (position.x() - 1 >= 0){
+        return if (position.x() - 1 >= 0 /*and not(hayObstaculo(izquierda)*/){
            position.left(1)
         }
         else {
@@ -53,5 +53,13 @@ object abajo{
         else {
             position
         }
+    }
+}
+
+object muro{
+    method position() = game.at(5, 6)
+    method image() = "muro.png"
+    method colisionConPepita(){
+        // pepita.volverAPosicionAnterior()
     }
 }

@@ -7,7 +7,8 @@ object pepita {
 	var energia = 500
 	const objectivo = nido
 	var property position = game.center()
-	var property estado = gameOn
+	var posicionAnterior = game.center()
+	var estado = gameOn
 
 // acciones
 	method comer(comida) {
@@ -19,9 +20,16 @@ object pepita {
 		energia = energia - 9 * distancia
 	}
 
+	method volarSiSeMovio(){
+		if (position != posicionAnterior){
+			self.volar(1)
+		}
+	}
+
 	method mover(direccion){
+		posicionAnterior = position
 		position = direccion.siguiente(self.position())
-		self.volar(1)
+		self.volarSiSeMovio()
 	}
 
 	method caer(){
@@ -37,6 +45,7 @@ object pepita {
 		estado = win
 		game.stop()
 	}
+
 
 // getters
 	method energia() = energia
