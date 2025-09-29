@@ -33,6 +33,11 @@ object pepita {
 		game.stop()
 	}
 
+	method ganar(){
+		estado = win
+		game.stop()
+	}
+
 // getters
 	method energia() = energia
 

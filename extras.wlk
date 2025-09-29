@@ -1,7 +1,14 @@
+import pepita.*
+import game.*
+
 object nido{
     var property position = game.at(8, 9)
     method image(){
         return "nido.png"
+    }
+    method colisionConPepita(){
+        game.say(self, "A descansar!")
+        pepita.ganar()
     }
 }
 
