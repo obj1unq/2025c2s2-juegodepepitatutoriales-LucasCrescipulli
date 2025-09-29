@@ -20,7 +20,6 @@ object pepita {
 	}
 
 	method mover(direccion){
-		self.verificarBordeAl(direccion)
 		position = direccion.siguiente(self.position())
 		self.volar(1)
 	}
@@ -61,11 +60,6 @@ object pepita {
 			// game.schedule(2000, {game.stop()})
 			game.stop()
 		}
-	}
-
-	method verificarBordeAl(direccion){
-		// determinar si un movimiento hacia **direccion** es posible o queda fuera del tablero
-
 	}
 }
 
