@@ -7,7 +7,7 @@ object pepita {
 	var energia = 500
 	const objectivo = nido
 	var property position = game.center()
-	var estado = gameOn
+	var property estado = gameOn
 
 // acciones
 	method comer(comida) {
@@ -30,13 +30,15 @@ object pepita {
 	}
 
 	method perder(){
+		estado = gameOver
+		game.stop()
 	}
 
 // getters
 	method energia() = energia
 
 	method image(){
-		return estado.imagen()
+		return estado.image()
 	}
 
 	method silvestreLaAtrapo(){

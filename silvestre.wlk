@@ -9,6 +9,7 @@ object silvestre{
         return "silvestre.png"
     }
     method colisionConPepita(){
+        game.say(self, "A comer!")
         pepita.perder()
     }
 }
