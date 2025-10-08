@@ -1,6 +1,7 @@
 import extras.*
 import silvestre.*
 import game.*
+import comidas.*
 
 object pepita {
 // atributos
@@ -13,6 +14,10 @@ object pepita {
 // acciones
 	method comer(comida) {
 		energia = energia + comida.energiaQueOtorga()
+		comidas.remover(comida)
+		if (game.hasVisual(comida)){
+			game.removeVisual(comida)
+		}
 	}
 
 	method volar(distancia) {
@@ -46,6 +51,9 @@ object pepita {
 		game.stop()
 	}
 
+	method text(){
+		return energia.toString()
+	}
 
 // getters
 	method energia() = energia

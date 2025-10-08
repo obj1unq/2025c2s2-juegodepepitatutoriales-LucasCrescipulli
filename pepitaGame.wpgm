@@ -2,6 +2,7 @@ import wollok.game.*
 import pepita.*
 import silvestre.*
 import extras.*
+import comidas.*
 
 program pepitaGame {
 
@@ -14,6 +15,7 @@ program pepitaGame {
 
 // personajes - objetos
 	game.addVisual(silvestre)
+	game.addVisual(new Manzana(position=game.at(7,8)))
 	game.addVisual(nido)
 	game.addVisual(pepita)
 	game.addVisual(muro)
@@ -31,4 +33,8 @@ program pepitaGame {
 
 // Tutorial 3
 	game.onCollideDo(pepita, {otro => otro.colisionConPepita()})
+	// game.onCollideDo(...) --> lo que tiene que pasar es que cada objeto determine
+	// 							si es atravesable. (polimorfismo total!!!)	
+
+	comidas.comenzar()
 }
