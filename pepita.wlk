@@ -15,9 +15,6 @@ object pepita {
 	method comer(comida) {
 		energia = energia + comida.energiaQueOtorga()
 		comidas.remover(comida)
-		if (game.hasVisual(comida)){
-			game.removeVisual(comida)
-		}
 	}
 
 	method volar(distancia) {

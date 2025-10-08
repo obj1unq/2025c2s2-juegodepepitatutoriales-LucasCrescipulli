@@ -15,7 +15,6 @@ program pepitaGame {
 
 // personajes - objetos
 	game.addVisual(silvestre)
-	game.addVisual(new Manzana(position=game.at(7,8)))
 	game.addVisual(nido)
 	game.addVisual(pepita)
 	game.addVisual(muro)

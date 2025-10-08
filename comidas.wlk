@@ -45,12 +45,16 @@ class Alpiste {
 
 	method energiaQueOtorga() {
 		return 20
-	} 
+	}
+
+	method colisionConPepita(){
+		pepita.comer(self)
+	}
 
 }
 
 object comidas{
-
+	const factories = [alpisteFactory, manzanaFactory]
 	const enElTablero = #{}
 
 	method comenzar(){
@@ -59,7 +63,7 @@ object comidas{
 
 	method nuevaComida(){
 		if (enElTablero.size() < self.maximo()){
-			const comida = new Manzana(position = randomizer.emptyPosition())
+			const comida = self.crearComida()
 			game.addVisual(comida)
 			enElTablero.add(comida)
 		}
@@ -74,5 +78,30 @@ object comidas{
 			enElTablero.remove(comida)
 			game.removeVisual(comida)
 		}
+	}
+
+	method crearComida(){ // factory method
+
+		/*
+		if ((0.. 1).anyOne() == 0){
+			return new Manzana(position = randomizer.emptyPosition())
+		}
+		else {
+			return new Alpiste(position = randomizer.emptyPosition(), peso = 40.randomUpTo(100).truncate(0))
+		}
+		*/
+		return factories.anyOne().crear()
+	}
+}
+
+object manzanaFactory{
+	method crear(){ // factory method
+		return new Manzana(position = randomizer.emptyPosition())
+	}
+}
+
+object alpisteFactory{
+	method crear(){ // factory method
+		return new Alpiste(position = randomizer.emptyPosition(), peso = 40.randomUpTo(100).truncate(0))
 	}
 }
