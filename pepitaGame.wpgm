@@ -1,14 +1,39 @@
 import wollok.game.*
 import pepita.*
+import silvestre.*
+import extras.*
+import comidas.*
 
 program pepitaGame {
-	game.title("Pepita") 	//Valor por defecto "Wollok Game"
-	game.height(10) 		//valor por defecto 5
-	game.width(10) 			//valor por defecto 5
-	game.cellSize(50) 		//valor por defecto 50
-	//search assets in assets folder, for example, for the background
-	//Valor por defecto game.ground("ground.png")
+
+// tablero
+	game.title("Pepita")
+	game.height(10)
+	game.width(10)
+	game.cellSize(50)
+	game.boardGround("fondo.jpg")
+
+// personajes - objetos
+	game.addVisual(silvestre)
+	game.addVisual(nido)
+	game.addVisual(pepita)
+	game.addVisual(muro)
 	
-	//game.addVisual(pepita)
-	game.start()	
+// Tutorial 2
+// Acciones de Pepita al moverse
+    keyboard.right().onPressDo({pepita.mover(derecha)})
+    keyboard.left().onPressDo({pepita.mover(izquierda)})
+    keyboard.up().onPressDo({pepita.mover(arriba)})
+    keyboard.down().onPressDo({pepita.mover(abajo)})
+
+	game.onTick(800, "gravedad", {pepita.caer()})
+    
+    game.start()
+
+// Tutorial 3
+	game.onCollideDo(pepita, {otro => otro.colisionConPepita()})
+	// game.onCollideDo(...) --> lo que tiene que pasar es que cada objeto determine
+	// 							si es atravesable. (polimorfismo total!!!)	
+
+	comidas.comenzar()
 }
